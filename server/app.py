@@ -46,7 +46,7 @@ class PlantByID(Resource):
         plant = plant.query.filter_by(id=id).first().to_dict()
         return make_response(jsonify(plant),200)
 
-    def get(self, id):
+    def patch(self, id):
         plant = Plant.query.filter_by(id=id).first().to_dict()
 
         data = request.get_json()
@@ -61,7 +61,7 @@ class PlantByID(Resource):
             response = make_response(jsonify(patch_plant_dict), 200)
             return response
         
-    def get(self,id):
+    def delete(self,id):
         
         delete = Plant.query.filter_by(id=id).first()
 
